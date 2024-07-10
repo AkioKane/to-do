@@ -16,9 +16,33 @@
     </header>
     <hr>
 
-    <div class="container">
-      <div id="content"></div>
+    <div class="forms">
+      <form id="form-sumbit">
+        <div class="container">
+          <label for="title">Title:</label>
+          <input type="text">
+
+          <label for="description">Description:</label>
+          <textarea name="description" id="description" rows="4" cols="50"></textarea>
+
+          <div class="small-box">
+            <label for="date">Date:</label>
+            <input type="date" class="date">
+
+            <label for="priority" >Priority:</label>
+            <input type="number" class="priority">
+          </div>
+          
+          <button id="sumbit">Sumbit</button>
+        </div>
+        
+
+        
+      </form>
     </div>
+    
+    <div id="content"></div>
+    
 
   </div>
 
