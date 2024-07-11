@@ -46,4 +46,20 @@ header h1:hover {
 
 .panel {
   background-color: #a1a1aa;
+  max-width: 400px;
+  min-width: 200px;
+}
+
+.container > .btn-item {
+  margin: 1em;
+  width: calc(100% - 2em);
+  border: none;
+}
+
+.container .btn-item:active {
+  background-color: gray;
+}
+
+.btn-item.active {
+  background-color: gray;
 }

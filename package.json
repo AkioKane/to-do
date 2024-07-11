@@ -7,6 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "watch": "webpack --watch",
+    "server": "webpack serve --open",
+    "start": "node server.js",
     "subtree": "git subtree push --prefix dist origin gh-pages"
   },
   "keywords": [],
@@ -17,6 +19,7 @@
     "html-webpack-plugin": "^5.6.0",
     "style-loader": "^4.0.0",
     "webpack": "^5.92.1",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
   }
 }
