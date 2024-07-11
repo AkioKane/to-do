@@ -1,11 +1,12 @@
 @font-face {
   font-family: "Roboto";
-  src: url("./fonts/Roboto/Roboto-Bold.ttf");
+  src: url("./fonts/Roboto/Roboto-Regular.ttf");
 }
 
 :root {
   --bg-color: #f1f5f9;
   --btn-active: #a1a1aa;
+  --btn-margin: 1em;
 }
 
 * {
@@ -45,21 +46,55 @@ header h1:hover {
 }
 
 .panel {
+  text-align: center;
   background-color: #a1a1aa;
   max-width: 400px;
   min-width: 200px;
 }
 
 .container > .btn-item {
-  margin: 1em;
-  width: calc(100% - 2em);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: var(--btn-margin);
+  margin-bottom: 0;
+  width: calc(100% - var(--btn-margin)*2);
   border: none;
+  border-radius: 5px;
+  height: 2em;
+  transition: all 0.2s ease;
+  font-family: "Roboto", sans-serif;
 }
 
-.container .btn-item:active {
-  background-color: gray;
+.container .btn-item:hover {
+  background-color: #64748b;
 }
+
 
 .btn-item.active {
-  background-color: gray;
+  background-color: #64748b;
+}
+
+.container h2 {
+  display: flex;
+  margin-top: 1em;
+  justify-content: center;
+}
+
+.add-project {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: var(--btn-margin);
+  margin-bottom: 0;
+  width: calc(100% - var(--btn-margin)*2);
+  border: none;
+  border-radius: 5px;
+  height: 2em;
+  transition: all 0.2s ease;
+  font-family: "Roboto", sans-serif;
+}
+
+.container .add-project:hover {
+  background-color: #d9f99d;
 }
