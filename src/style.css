@@ -23,6 +23,8 @@ header {
   justify-content: center;
   align-items: center;
   height: 10vh;
+  background-color: rgb(15 23 42);
+  color: white;
 }
 
 header h1 {
@@ -30,63 +32,18 @@ header h1 {
   transition: all 0.2s ease;
 }
 
-hr {
-  border: none;
-  height: 2px;
-  background-color: black;
-}
-
 header h1:hover {
   opacity: 0.5;
 }
 
-.add {
-  display: flex;
-  border: 1px solid black;
-  margin-left: 40vw;
-  border-radius: 2px;
-  transition: all 0.1s ease;
-  background-color: #bbf7d0;
-}
-
-.add:active {
-  background-color: var(--btn-active);
-}
-
-.forms {
-  display: none;
-  position: fixed;
-  height: 100vh;
+#content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  height: calc(100vh - 10vh);
   width: 100vw;
-  background-color: gray;
-  justify-content: center;
-  align-items: center;
 }
 
-#form-sumbit {
-  display: block;
-  width: 30em;
-  height: auto;
-  border: 2px solid black;
-  background-color: white;
-  border-radius: 5px;
-}
-
-#form-sumbit .container {
-  margin: 1.5em;
-}
-
-input {
-  width: 85%;
-}
-
-textarea {
-  width: 100%;
-}
-
-.small-box {
-  display: flex;
-}
-.small-box input {
-  margin-right: 1em;
+.panel {
+  background-color: #a1a1aa;
 }
