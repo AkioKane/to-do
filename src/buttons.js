@@ -23,6 +23,17 @@ function activeButton() {
   });
 }
 
+function addProject() {
+  const btn = document.querySelector(".add-project")
+  const panel = document.querySelector(".added-project")
+
+  btn.addEventListener("click", () => {
+    panel.style.display = "block";
+    btn.style.display = "none";
+  })
+}
+
 module.exports = {
   activeButton,
+  addProject
 }

@@ -1,11 +1,12 @@
 import "./style.css"
 import "./assets/add.svg"
-import { activeButton } from "./buttons"
+import * as btn from "./buttons"
 
 const content = document.getElementById("content")
 
 function start() {
-  activeButton()
+  btn.activeButton()
+  btn.addProject()
 }
 
 start()

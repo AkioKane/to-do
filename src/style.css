@@ -5,13 +5,14 @@
 
 :root {
   --bg-color: #f1f5f9;
-  --btn-active: #a1a1aa;
+  --btn-color: #71717a;
   --btn-margin: 1em;
 }
 
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .main {
@@ -67,12 +68,11 @@ header h1:hover {
 }
 
 .container .btn-item:hover {
-  background-color: #64748b;
+  background-color: var(--btn-color);
 }
 
-
 .btn-item.active {
-  background-color: #64748b;
+  background-color: var(--btn-color);
 }
 
 .container h2 {
@@ -97,4 +97,35 @@ header h1:hover {
 
 .container .add-project:hover {
   background-color: #d9f99d;
+}
+
+.container .add-project:active {
+  background-color: #a3e635;
+}
+
+.container .added-project {
+  display: none;
+  margin: var(--btn-margin);
+  width: calc(100% - var(--btn-margin)*2);
+}
+
+.container .added-project input {
+  width: 100%;
+  height: 2em;
+}
+
+.container .added-project .btns-added-project {
+  display: flex;
+  margin-top: 0.25em;
+  justify-content: space-between;
+  gap: 3em;
+}
+
+.container .added-project .btns-added-project button {
+  width: 100%;
+  height: 2em;
+}
+
+.btn-cancel {
+  margin-left: 2em;
 }
