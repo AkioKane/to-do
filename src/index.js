@@ -1,6 +1,6 @@
 import "./style.css"
 import "./assets/add.svg"
-import * as btn from "./buttons"
+import * as btn from "./register"
 
 const content = document.getElementById("content")
 

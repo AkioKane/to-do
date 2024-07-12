@@ -26,11 +26,28 @@ function activeButton() {
 function addProject() {
   const btn = document.querySelector(".add-project")
   const panel = document.querySelector(".added-project")
+  const btnAdd = document.querySelector(".btn-add")
+  const btnCancel = document.querySelector(".btn-cancel")
 
   btn.addEventListener("click", () => {
     panel.style.display = "block";
     btn.style.display = "none";
   })
+  btnAdd.addEventListener("click", () => {
+    // function add project
+    panel.style.display = "none";
+    btn.style.display = "flex";
+  })
+  btnCancel.addEventListener("click", () => {
+    panel.style.display = "none";
+    btn.style.display = "flex";
+  })
+}
+
+function addContainer() {
+  const container = document.querySelector(".container-projects")
+
+  
 }
 
 module.exports = {

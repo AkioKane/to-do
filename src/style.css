@@ -15,6 +15,12 @@
   box-sizing: border-box;
 }
 
+h1,
+h2,
+button {
+  font-family: "Roboto", sans-serif;
+}
+
 .main {
   min-height: 100vh;
   background-color: var(--bg-color);
@@ -64,7 +70,6 @@ header h1:hover {
   border-radius: 5px;
   height: 2em;
   transition: all 0.2s ease;
-  font-family: "Roboto", sans-serif;
 }
 
 .container .btn-item:hover {
@@ -92,7 +97,6 @@ header h1:hover {
   border-radius: 5px;
   height: 2em;
   transition: all 0.2s ease;
-  font-family: "Roboto", sans-serif;
 }
 
 .container .add-project:hover {
@@ -128,4 +132,37 @@ header h1:hover {
 
 .btn-cancel {
   margin-left: 2em;
+}
+
+.container-projects {
+  display: flex;
+  justify-content: center;
+}
+
+.container-projects .content {
+  display: flex;
+  flex-direction: column;
+  margin: 2em;
+  width: 100%;
+  text-align: center;
+}
+
+.container-projects .content h1 { margin-bottom: 0.25em; }
+.container-projects .content button {
+  width: 100%;
+  height: 2em;
+  margin-bottom: 0.5em;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: white;
+  transition: all 0.2s ease;
+}
+
+.container-projects .content button:hover {
+  background-color: var(--btn-color);
+  border: none;
+}
+.container-projects .content button:active {
+  background-color: var(--btn-color);
+  border: 5px solid var(--btn-color);
 }
