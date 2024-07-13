@@ -29,6 +29,10 @@ function addProject() {
   const btnAdd = document.querySelector(".btn-add")
   const btnCancel = document.querySelector(".btn-cancel")
 
+  const btnAddContent = document.querySelector(".add-item")
+  const panelContent = document.querySelector(".add-panel-content")
+  const btnAddItem = document.querySelector(".btn-add-item")
+
   btn.addEventListener("click", () => {
     panel.style.display = "block";
     btn.style.display = "none";
@@ -46,6 +50,18 @@ function addProject() {
     panel.style.display = "none";
     btn.style.display = "flex";
   })
+  btnAddContent.addEventListener("click", () => {
+    panelContent.style.display = "block";
+    btnAddContent.style.display = "none";
+  })
+  btnAddItem.addEventListener("click", () => {
+    const input = document.querySelector(".input-content")
+    addContentItem(input)
+    resetElement(input)
+
+    panelContent.style.display = "none";
+    btnAddContent.style.display = "block"
+  })
 }
 
 function addProjectItem(value) {
@@ -60,15 +76,24 @@ function addProjectItem(value) {
   else {
     return alert("The field must not be empty")
   }
-  
 
   container.appendChild(item)
 }
 
-function addContainer() {
-  const container = document.querySelector(".container-projects")
+function addContentItem(value) {
+  const container = document.querySelector(".items")
+  const item = document.createElement("button")
 
-  
+  item.classList.add("item")
+
+  if (value.value != "") {
+    item.innerHTML = value.value
+  }
+  else {
+    return alert("The field must not be empty")
+  }
+
+  container.appendChild(item)
 }
 
 function resetElement(element) {
