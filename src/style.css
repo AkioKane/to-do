@@ -26,6 +26,7 @@ button {
 input {
   border-radius: 5px;
   border: 1px solid #a1a1aa;
+  padding-left: 3px;
 }
 
 input:focus {
@@ -198,6 +199,7 @@ header h1:hover {
 
 .content .added-project {
   display: none;
+  width: 50%;
 }
 
 .content .added-project .btns-added-project{
