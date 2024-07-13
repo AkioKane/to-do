@@ -35,6 +35,10 @@ function addProject() {
   })
   btnAdd.addEventListener("click", () => {
     // function add project
+    const input = document.querySelector(".input-project")
+    addProjectItem(input)
+    resetElement(input)
+    
     panel.style.display = "none";
     btn.style.display = "flex";
   })
@@ -44,10 +48,31 @@ function addProject() {
   })
 }
 
+function addProjectItem(value) {
+  const container = document.querySelector(".container")
+  const item = document.createElement("button")
+
+  item.classList.add("item-project")
+
+  if (value.value != "") {
+    item.innerHTML = value.value
+  }
+  else {
+    return alert("The field must not be empty")
+  }
+  
+
+  container.appendChild(item)
+}
+
 function addContainer() {
   const container = document.querySelector(".container-projects")
 
   
+}
+
+function resetElement(element) {
+  return element.value = ""
 }
 
 module.exports = {

@@ -21,6 +21,15 @@ button {
   font-family: "Roboto", sans-serif;
 }
 
+input {
+  border-radius: 5px;
+  border: none;
+}
+
+input:focus {
+  border: 2px solid var(--btn-color);
+}
+
 .main {
   min-height: 100vh;
   background-color: var(--bg-color);
@@ -107,6 +116,19 @@ header h1:hover {
   background-color: #a3e635;
 }
 
+.container .item-project {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: var(--btn-margin);
+  margin-bottom: 0;
+  width: calc(100% - var(--btn-margin)*2);
+  border: none;
+  border-radius: 5px;
+  height: 2em;
+  transition: all 0.2s ease;
+}
+
 .container .added-project {
   display: none;
   margin: var(--btn-margin);
@@ -140,19 +162,23 @@ header h1:hover {
 }
 
 .container-projects .content {
-  display: flex;
-  flex-direction: column;
   margin: 2em;
+}
+
+.container-projects .content, .content .items {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   width: 100%;
   text-align: center;
 }
 
 .container-projects .content h1 { margin-bottom: 0.25em; }
-.container-projects .content button {
-  width: 100%;
+.container-projects .content button, .item {
+  width: 50%;
   height: 2em;
   margin-bottom: 0.5em;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 5px;
   background-color: white;
   transition: all 0.2s ease;
@@ -162,6 +188,7 @@ header h1:hover {
   background-color: var(--btn-color);
   border: none;
 }
+
 .container-projects .content button:active {
   background-color: var(--btn-color);
   border: 5px solid var(--btn-color);
