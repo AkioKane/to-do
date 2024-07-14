@@ -168,7 +168,7 @@ header h1:hover {
   margin: 2em;
 }
 
-.container-projects .content, .content .items {
+.container-projects .content, .container-page, .items{
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -176,7 +176,7 @@ header h1:hover {
   text-align: center;
 }
 
-.container-projects .content h1 { margin-bottom: 0.25em; }
+.container-projects .content .container-page h1 { margin-bottom: 0.25em; }
 .container-projects .content button, .item {
   width: 50%;
   height: 2em;
