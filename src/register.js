@@ -1,3 +1,5 @@
+let currentlyPage = "inbox"
+
 function activeButton() {
   const buttons = document.querySelectorAll(".btn-item")
   const inbox = document.querySelector("#inbox")
@@ -33,6 +35,20 @@ function addProject() {
   const panelContent = document.querySelector(".add-panel-content")
   const btnAddItem = document.querySelector(".btn-add-item")
 
+  const btnItem = document.querySelectorAll(".btn-item")
+  const today = document.querySelector("#today-page")
+  const week = document.querySelector("#week-page")
+
+  today.style.display = "none";
+  week.style.display = "none";
+  
+
+  btnItem.forEach(btn => {
+    btn.addEventListener("click", () => {
+      activePage(btn.id)
+    })
+  })
+
   btn.addEventListener("click", () => {
     panel.style.display = "block";
     btn.style.display = "none";
@@ -56,7 +72,7 @@ function addProject() {
   })
   btnAddItem.addEventListener("click", () => {
     const input = document.querySelector(".input-content")
-    addContentItem(input)
+    addContentItem(input, currentlyPage)
     resetElement(input)
 
     panelContent.style.display = "none";
@@ -80,8 +96,8 @@ function addProjectItem(value) {
   container.appendChild(item)
 }
 
-function addContentItem(value) {
-  const container = document.querySelector(".items")
+function addContentItem(value, currentlyPage) {
+  const container = document.querySelector(`.items-${currentlyPage}`)
   const item = document.createElement("button")
 
   item.classList.add("item")
@@ -98,6 +114,20 @@ function addContentItem(value) {
 
 function resetElement(element) {
   return element.value = ""
+}
+
+function activePage(btn) {
+  const inbox = document.querySelector("#inbox-page")
+  const today = document.querySelector("#today-page")
+  const week = document.querySelector("#week-page")
+
+  if (btn == "inbox" || btn == "today" || btn == "week") {
+    inbox.style.display = "none";
+    today.style.display = "none";
+    week.style.display = "none";
+    document.querySelector(`#${btn}-page`).style.display = "block"
+    currentlyPage = btn
+  }
 }
 
 module.exports = {
