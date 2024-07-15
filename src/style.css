@@ -173,7 +173,6 @@ header h1:hover {
   align-items: center;
   flex-direction: column;
   width: 100%;
-  text-align: center;
 }
 
 .container-projects .content .container-page h1 { margin-bottom: 0.25em; }
@@ -187,6 +186,14 @@ header h1:hover {
   transition: all 0.2s ease;
 }
 
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 .container-projects .content button:hover {
   background-color: var(--btn-color);
   border: none;
@@ -194,7 +201,6 @@ header h1:hover {
 
 .container-projects .content button:active {
   background-color: var(--btn-color);
-  border: 5px solid var(--btn-color);
 }
 
 .content .added-project {
@@ -236,4 +242,21 @@ header h1:hover {
 
 .content .added-project .btns-added-project .btn-cancel:active {
   border: 5px solid var(--btn-cancel);
+}
+
+.input-date-item {
+  /* display: none; */
+  display: flex;
+  border: none;
+  background-color: white;
+  transition: border 0.2s ease-in-out;
+
+}
+
+.input-date-item:focus {
+  border: 1px solid black;
+}
+
+.checkbox-input:checked {
+  background-color: black;
 }

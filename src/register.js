@@ -94,17 +94,13 @@ function addProjectItem(value) {
   const container = document.querySelector(".container")
   const item = document.createElement("button")
 
-  
-
   if (value.value != "") {
     item.innerHTML = value.value
     item.id = value.value
     item.classList.add("btn-item")
     projectsList.push(value.value)
-
     
     item.addEventListener("click", () => {
-
       activeButton(true)
       activePage(item.id);
       
@@ -124,7 +120,19 @@ function addContentItem(value, currentlyPage) {
   item.classList.add("item")
 
   if (value.value != "") {
-    item.innerHTML = value.value
+    const i = document.createElement("input")
+    i.classList.add("checkbox-input")
+    i.type = "checkbox"
+    item.appendChild(i)
+
+    const p = document.createElement("p")
+    p.innerHTML = value.value
+    item.appendChild(p)
+
+    const date = document.createElement("input")
+    date.classList.add("input-date-item")
+    date.type = "date"
+    item.appendChild(date)
   }
   else {
     return alert("The field must not be empty")
@@ -162,12 +170,12 @@ function activePage(btn) {
   }
   else {
     const container = document.querySelector(".content")
-    const itemContent = container.querySelector(`.${btn}`)
+    const itemContent = container.querySelector(`.r${btn}`)
     if (!itemContent) {
       const btnAdd = document.querySelector(".add-item")
 
       const div = document.createElement("div")
-      div.classList.add(btn)
+      div.classList.add(`r${btn}`)
       div.classList.add("custom-items")
       div.classList.add("container-page")
       div.id = `${btn}-page`
