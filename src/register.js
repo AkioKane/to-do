@@ -1,27 +1,38 @@
 let currentlyPage = "inbox"
 
-function activeButton() {
+let projectsList = []
+
+function activeButton(flag) {
   const buttons = document.querySelectorAll(".btn-item")
   const inbox = document.querySelector("#inbox")
   const today = document.querySelector("#today")
   const week = document.querySelector("#week")
 
-  // default active btn
-  inbox.classList.add("active")
-
+  if (flag != true) {
+    inbox.classList.add("active");
+  }
+  
   buttons.forEach(button => {
     button.addEventListener("mousedown", () => {
-        if (inbox.classList.contains("active")) {
-          inbox.classList.remove("active")
-        }
-        else if (today.classList.contains("active")) {
-          today.classList.remove("active")
-        }
-        else if (week.classList.contains("active")) {
-          week.classList.remove("active")
-        }
-        button.classList.add("active")
-    })
+      buttons.forEach(btn => btn.classList.remove("active"));
+      
+      button.classList.add("active");
+    });
+  });
+
+  inbox.addEventListener("mousedown", () => {
+    buttons.forEach(btn => btn.classList.remove("active"));
+    inbox.classList.add("active");
+  });
+
+  today.addEventListener("mousedown", () => {
+    buttons.forEach(btn => btn.classList.remove("active"));
+    today.classList.add("active");
+  });
+
+  week.addEventListener("mousedown", () => {
+    buttons.forEach(btn => btn.classList.remove("active"));
+    week.classList.add("active");
   });
 }
 
@@ -41,7 +52,6 @@ function addProject() {
 
   today.style.display = "none";
   week.style.display = "none";
-  
 
   btnItem.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -84,10 +94,21 @@ function addProjectItem(value) {
   const container = document.querySelector(".container")
   const item = document.createElement("button")
 
-  item.classList.add("item-project")
+  
 
   if (value.value != "") {
     item.innerHTML = value.value
+    item.id = value.value
+    item.classList.add("btn-item")
+    projectsList.push(value.value)
+
+    
+    item.addEventListener("click", () => {
+
+      activeButton(true)
+      activePage(item.id);
+      
+    });
   }
   else {
     return alert("The field must not be empty")
@@ -116,18 +137,63 @@ function resetElement(element) {
   return element.value = ""
 }
 
+function resetPage(btn) {
+  const allItems = document.querySelectorAll(".container-page")
+  allItems.forEach(item => {item.style.display = "none";})
+
+  btn.style.display = "block"
+}
+
 function activePage(btn) {
   const inbox = document.querySelector("#inbox-page")
   const today = document.querySelector("#today-page")
   const week = document.querySelector("#week-page")
+  const customItems = document.querySelectorAll(".custom-items")
+
+  console.log("active")
 
   if (btn == "inbox" || btn == "today" || btn == "week") {
     inbox.style.display = "none";
     today.style.display = "none";
     week.style.display = "none";
+    customItems.forEach(item => {item.style.display = "none"})
     document.querySelector(`#${btn}-page`).style.display = "block"
     currentlyPage = btn
   }
+  else {
+    const container = document.querySelector(".content")
+    const itemContent = container.querySelector(`.${btn}`)
+    if (!itemContent) {
+      const btnAdd = document.querySelector(".add-item")
+
+      const div = document.createElement("div")
+      div.classList.add(btn)
+      div.classList.add("custom-items")
+      div.classList.add("container-page")
+      div.id = `${btn}-page`
+      container.insertBefore(div, btnAdd)
+      resetPage(div)
+
+      const h1 = document.createElement("h1")
+      h1.innerHTML = btn
+      div.appendChild(h1)
+
+      const items = document.createElement("div")
+      items.classList.add("items")
+      items.classList.add(`items-${btn}`)
+      div.appendChild(items)
+
+      currentlyPage = btn
+    }
+    else {
+      resetPage(itemContent)
+      itemContent.style.display = "block"
+    }
+  }
+}
+
+function updateScreen() {
+
 }
 
 module.exports = {
